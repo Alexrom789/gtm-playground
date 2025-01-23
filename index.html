@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script>
+      (function (w, d, s, l, i) {
+        console.log("firing from index");
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MFSH7MDC");
+    </script>
     <title>GTM Playground</title>
   </head>
   <body>
@@ -15,34 +28,5 @@
     <h1>Alex's GTM Playground</h1>
     <h2>Key Values:</h2>
     <div id="value-display"></div>
-    <script>
-      (function (w, d, s, l, i) {
-        console.log("firing from index");
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-MFSH7MDC");
-
-      console.log("TEST SCRIPT");
-      var key1 = "{{UrlQueryKey1}}";
-      var key2 = "{{UrlQueryKey2}}";
-
-      console.log("Key1:", key1);
-      console.log("Key2:", key2);
-
-      var displayDiv = document.getElementById("value-display");
-
-      // Check if the key values are available and display them
-      if (key1 || key2) {
-        displayDiv.innerHTML = "Key 1: " + key1 + "<br>Key 2: " + key2;
-      } else {
-        displayDiv.innerHTML = "No query parameters found.";
-      }
-    </script>
   </body>
 </html>
